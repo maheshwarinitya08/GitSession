@@ -1,0 +1,109 @@
+ ABOUT GIT AND GITHUB
+~By Nitya Maheshwari (AITR ACM , Acropolis Institute of Technology and research)
+
+Git is a version control system.
+Version control systems are a category of software tools that helps in recording changes made to files by keeping a track of modifications done in the code. 
+
+Types of Version Control System
+
+1]Local Version Control Systems: It is one of the simplest forms and has a database that kept all the changes to files under revision control. RCS is one of the most common VCS tools. It keeps differences between files in a special format on disk. By adding up all the patches it can then re-create what any file looked like at any point in time. 
+
+2]Centralised Version Control Systems: It has have a single server that contains all the versioned files, and a number of clients that check out files from that central place. For many years, this has been the standard for version control.
+
+3]Distributed Version Control Systems: In this clients don’t just check out the latest snapshot of the files; rather, they fully mirror the repository, including its full history. Thus, if any server dies, and these systems were collaborating via that server, any of the client repositories can be copied back up to the server to restore it. 
+
+History of git
+
+1982 : First generation of vcs
+1990: Centralised Vcs
+2005: Birth of git
+
+Reason behind birth of git
+In 2002, the Linux kernel project began using a proprietary DVCS called BitKeeper.
+In 2005, the relationship between the community that developed the Linux kernel and the commercial company that developed BitKeeper broke down, and the tool’s free-of-charge status was revoked. This prompted the Linux development community (and in particular Linus Torvalds, the creator of Linux) to develop their own tool based on some of the lessons they learned while using BitKeeper.
+
+
+States of git
+
+Git has three main states that your files can reside in: modified, staged, and committed:
+
+Modified means that you have changed the file but have not committed it to your database yet.
+Staged means that you have marked a modified file in its current version to go into your next commit snapshot.
+Committed means that the data is safely stored in your local database.
+
+This leads us to the three main sections of a Git project: the working tree, the staging area, and the Git directory.
+
+The basic Git workflow goes something like this:
+You modify files in your working tree.
+You selectively stage just those changes you want to be part of your next commit, which adds only those changes to the staging area.
+You do a commit, which takes the files as they are in the staging area and stores that snapshot permanently to your Git directory.
+
+Setting username and email
+git config --global user.name "maheshwarinitya08"
+git config --global user.email maheshwarinitya0801@gmail.com
+
+To check configuration setting
+git config --list
+
+Intialising a repository
+git init
+This creates a new subdirectory named .git that contains all of your necessary repository files 
+
+To track files
+git add . (to add all the files)
+git add index.html (to add specific file)
+git commit -m "first commit"
+
+To clone a repository
+git clone <url>
+
+To check the status of the files
+git status
+
+git diff :That command compares what is in your working directory with what is in your staging area. 
+git diff --staged:This command compares your staged changes to your last commit.
+
+To view the commit history you can use : 
+git log
+
+If you you commit too early and possibly forget to add some files, or you mess up your commit message. If you want to redo that commit, make the additional changes you forgot, stage them, and commit again you can use: git commit --amend
+
+Branch
+to see the available branches: git branch
+to add a new branch: git branch ui
+to switch between branches: git checkout ui
+
+
+Merging the branches
+If we want to merge the master and ui branch.
+
+First, we need to change to the master branch:git checkout master
+Now we merge the current branch (master) with ui: git merge ui
+
+Merge conflict
+If we do two different things in the same file at two different branches then merge conflict occur
+And to remove that we have to manually make the changes and the we keep the content that we want .
+Now after doing this , now on merging the branches and there will be no conflict as it will keep the changes that are done by us manually
+
+To push local repository to GitHub
+git remote add origin URL specifies that you are adding a remote repository, with the specified URL, as an origin to your local Git repo.
+Now we are going to push our main branch to the origin url, and set it as the default remote branch:git branch -M main
+After that  git push -u origin main
+
+
+Any time you start working on a project, you should get the most recent changes to your local copy.
+With Git, you can do that with pull.
+fetch gets all the change history of a tracked branch/repo.
+merge combines the current branch, with a specified branch.
+pull is a combination of fetch and merge. It is used to pull all changes from a remote repository into the branch you are working on.
+
+Fork
+A fork is a copy of a repository. This is useful when you want to contribute to someone else's project or start your own project based on theirs.
+
+To generate the tokens
+go to settings
+then in public profile go to developers setting
+then personal access tokens
+then Tokens (classic)
+Generate new token
+
